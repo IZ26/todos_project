@@ -23,13 +23,13 @@
         </div>
     </div>
     <div>
-        @foreach($task as $task)
+        @foreach($task as $t)
             <div class="column">
                 <div class="column is-half is-offset-one-quarter">
                     <article class="message">
                         <div class="message-header">
-                            {{$task->name}}
-                            <form method="post" action="{{ route('delete', [$task->id]) }}">
+                            {{$t->name}}
+                            <form method="post" action="{{ route('delete', [$t->id]) }}">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
                                 <button class="delete"></button>
@@ -39,5 +39,10 @@
                 </div>
             </div>
         @endforeach
+        <div class="column">
+            <div class="column is-half is-offset-one-quarter">
+                {{ $task->links() }}
+            </div>
+        </div>
     </div>
 @endsection

@@ -12,10 +12,12 @@
 */
 
 Route::get('/', function () {
-    return redirect('/tasks');
+    return redirect('/login');
 });
 
 Route::post('/task', 'TaskController@createTask');
-Route::post('/task/{id}', 'TaskController@deleteTask')->name('delete');
+Route::delete('/task/{id}', 'TaskController@deleteTask')->name('delete');
 Route::get('/tasks', 'TaskController@allTasks');
 
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');

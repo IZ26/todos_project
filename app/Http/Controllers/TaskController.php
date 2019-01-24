@@ -25,8 +25,8 @@ class TaskController extends Controller
         ]);
     }
 
-    /*public function deleteTask(Task $task, Request $req){
+    public function deleteTask(Task $task, Request $req){
         $task->find($req->id)->delete();
         return redirect('/tasks');
-    }*/
+    }
 }
